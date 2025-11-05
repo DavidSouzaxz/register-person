@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$primary-500: #3949ab;
+$primary-700: #303f9f;
+$accent-200: #ff80ab;
+$warn-500: #e53935;
+
+$border-radius-sm: 6px;
+$border-radius-md: 10px;
+
+:root {
+  --app-font-family: "Roboto", sans-serif;
+  --app-primary: #{$primary-500};
+  --app-accent: #{$accent-200};
+  --app-warn: #{$warn-500};
+}
+
+html,
+body {
+  font-family: var(--app-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--app-font);
+  font-weight: 600;
+}
+p,
+label,
+input,
+button {
+  font-weight: 400;
+}

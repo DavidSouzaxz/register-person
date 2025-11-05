@@ -1,0 +1,56 @@
+<mat-card class="supplier-card" appearance="outlined">
+  <div class="card-header">
+    <h2>Cadastro de Fornecedor / Cliente</h2>
+    <p class="subtitle">
+      Preencha os dados abaixo e anexe os documentos necessários.
+    </p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="supplier">Fornecedor</mat-option>
+        <mat-option value="customer">Cliente</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <div class="file-row">
+      <label class="file-btn" for="doc">
+        <mat-icon>attach_file</mat-icon>
+        Anexar documentos
+      </label>
+      <input id="doc" type="file" (change)="onFile($event)" multiple />
+      <div class="file-list" *ngIf="files.length">
+        {{ files.length }} arquivo(s) selecionado(s)
+      </div>
+    </div>
+
+    <div class="actions">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="loading || form.invalid"
+      >
+        <mat-icon *ngIf="!loading">check</mat-icon>
+        <mat-progress-spinner
+          *ngIf="loading"
+          diameter="20"
+          mode="indeterminate"
+        ></mat-progress-spinner>
+        <span class="btn-label">Salvar</span>
+      </button>
+    </div>
+  </form>
+</mat-card>

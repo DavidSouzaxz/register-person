@@ -17,25 +17,13 @@ $border-radius-md: 10px;
   --app-warn: #{$warn-500};
 }
 
+// * {
+//   font-family: 'Roboto', sans-serif;
+// }
+
 html,
 body {
-  font-family: var(--app-font);
+  font-family: var(--app-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--app-font);
-  font-weight: 600;
-}
-p,
-label,
-input,
-button {
-  font-weight: 400;
 }

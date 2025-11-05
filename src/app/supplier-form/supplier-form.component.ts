@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -35,6 +35,12 @@ import { SupplierService } from '../../services/supplier/supplier.service';
   providers: [SupplierService],
 })
 export class SupplierFormComponent {
+  @Output() newSupplier = new EventEmitter<{
+    name: string;
+    type: string;
+    email: string;
+    document: string;
+  }>();
   files: File[] = [];
   loading = false;
   form!: FormGroup;
@@ -74,16 +80,14 @@ export class SupplierFormComponent {
       this.form.markAllAsTouched();
       return;
     }
-    const payload = { ...this.form.value };
-    const formData = new FormData();
-    formData.append(
-      'data',
-      new Blob([JSON.stringify(payload)], { type: 'application/json' })
-    );
-    this.files.forEach((f, i) => formData.append(`file${i}`, f, f.name));
+    const payload = {
+      ...this.form.value,
+      document: this.files[0]?.name || 'N/A',
+    };
+    this.newSupplier.emit(payload);
 
     this.loading = true;
-    this.supplierService.create(formData).subscribe({
+    this.supplierService.create(new FormData()).subscribe({
       next: () => {
         this.loading = false;
         this.matSnackBar.open('Cadastro realizado com sucesso', 'Fechar', {

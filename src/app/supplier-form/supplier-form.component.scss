@@ -7,7 +7,7 @@ $safe-primary: var(--app-primary, #3949ab);
 .supplier-card {
   max-width: 820px;
   width: 100%;
-  margin: 18px auto;
+  margin: 8px auto;
   padding: 20px;
   border-radius: 12px;
   background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
@@ -16,13 +16,15 @@ $safe-primary: var(--app-primary, #3949ab);
 }
 
 .card-header {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+
   h2 {
     font-family: "Roboto", sans-serif;
     margin: 0 0 4px 0;
     font-size: 1.45rem;
     color: #0f1724;
   }
+
   .subtitle {
     margin: 0;
     color: rgba(15, 23, 36, 0.6);
@@ -73,6 +75,7 @@ $safe-primary: var(--app-primary, #3949ab);
     mat-icon {
       font-size: 18px;
     }
+
     &:hover {
       transform: translateY(-2px);
     }

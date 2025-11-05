@@ -1,3 +1,9 @@
-<div class="justify-center items-center flex flex-col min-h-screen">
-  <app-supplier-form></app-supplier-form>
+<div class="">
+  <h1 class="text-center mt-9 text-6xl mb-12 text-blue-700">Register Personal</h1>
+  <div class="justify-around items-center flex">
+    <app-supplier-form (newSupplier)="handleNewSupplier($event)"></app-supplier-form>
+    <app-table-list></app-table-list>
+  </div>
+  <!-- <mat-divider></mat-divider> -->
+
 </div>

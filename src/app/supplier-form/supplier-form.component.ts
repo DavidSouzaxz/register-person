@@ -16,6 +16,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SupplierService } from '../../services/supplier/supplier.service';
 
+const EMAIL_STRICT =
+  "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,63}$";
+
 @Component({
   selector: 'app-supplier-form',
   imports: [
@@ -53,7 +56,14 @@ export class SupplierFormComponent {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       type: ['supplier', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern(EMAIL_STRICT),
+        ],
+      ],
     });
   }
 

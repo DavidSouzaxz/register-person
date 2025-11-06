@@ -1,9 +1,15 @@
-<div class="">
-  <h1 class="text-center mt-9 text-6xl mb-12 text-blue-700">Register Personal</h1>
-  <div class="justify-around items-center flex">
-    <app-supplier-form (newSupplier)="handleNewSupplier($event)"></app-supplier-form>
+<div class="flex justify-center flex-col items-center min-h-screen">
+  <div class="flex items-center">
+    <img src="./background.png" alt="Title image" class="w-[250px]" />
+    <h4 class="text-center text-gray-200">
+      Sistema focado na Gestão de Fornecedores & Clientes!
+    </h4>
+  </div>
+  <div class="justify-around items-center flex min-w-full">
+    <app-supplier-form
+      (newSupplier)="handleNewSupplier($event)"
+    ></app-supplier-form>
     <app-table-list></app-table-list>
   </div>
   <!-- <mat-divider></mat-divider> -->
-
 </div>

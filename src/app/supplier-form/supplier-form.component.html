@@ -15,8 +15,8 @@
     <mat-form-field appearance="outline" class="full">
       <mat-label>Tipo</mat-label>
       <mat-select formControlName="type">
-        <mat-option value="supplier">Fornecedor</mat-option>
-        <mat-option value="customer">Cliente</mat-option>
+        <mat-option value="Fornecedor">Fornecedor</mat-option>
+        <mat-option value="Cliente">Cliente</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -37,9 +37,18 @@
     </div>
 
     <div class="actions">
-      <button mat-raised-button color="primary" type="submit" [disabled]="loading || form.invalid">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="loading || form.invalid"
+      >
         <mat-icon *ngIf="!loading">check</mat-icon>
-        <mat-progress-spinner *ngIf="loading" diameter="20" mode="indeterminate"></mat-progress-spinner>
+        <mat-progress-spinner
+          *ngIf="loading"
+          diameter="20"
+          mode="indeterminate"
+        ></mat-progress-spinner>
         <span class="btn-label" *ngIf="!loading">Salvar</span>
       </button>
     </div>
